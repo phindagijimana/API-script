@@ -1,0 +1,17 @@
+import requests
+import json
+Euro = input('Enter your EUR:')
+params = {
+    "access_key": "5764f6c7ae2cd7e9e5c26a2f2ef25c34",
+    "base": "EUR",
+    "symbols" : "USD"}
+response = requests.get('http://data.fixer.io/api/latest', params)
+
+print(response)
+
+json_data = response.json()
+
+print(json_data)
+rate=json_data["rates"] ["USD"]
+Amount = float(Euro)*float(rate)
+print('Amount:', Amount)
